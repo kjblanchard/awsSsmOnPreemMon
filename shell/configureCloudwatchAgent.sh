@@ -3,3 +3,4 @@ if sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetc
     echo Configured Cloudwatch agent!
 else
     echo Issue with configuration.
+fi
