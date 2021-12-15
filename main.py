@@ -6,17 +6,26 @@ dependencyScript = 'installDependencies.sh'
 cloudwatchConfigScript = 'configureCloudwatchAgent.sh'
 
 
-def InstallDependencies():
-    os.chmod(f'{shellFolder}/{dependencyScript}',0o0777)
-    process = subprocess.run([f'{shellFolder}/{dependencyScript}'])
+def RunShellScript(shellScriptFilename, scriptDescription = 'running the script'):
+    """Runs a shell script and notifys if there is an error code
+
+    Args:
+        shellScriptFilename (str): The filename and extension for the script in the scripts folder
+        scriptDescription (str, optional): For logging, what you want it to say in the msg. Defaults to 'running the script'.
+    """
+    os.chmod(f'{shellFolder}/{shellScriptFilename}',0o0777)
+    process = subprocess.run([f'{shellFolder}/{shellScriptFilename}'])
     if(process.returncode != 0):
-        print(f'There was an issue when installing the dependencies, please check {process}')
+        print(f'There was an issue when {scriptDescription}, please check {process}')
+
+def InstallDependencies():
+    """Runs the shell script to install dependencies"""
+    RunShellScript(dependencyScript)
 
 def ConfigureCloudwatchAgent():
-    os.chmod(f'{shellFolder}/{cloudwatchConfigScript}',0o0777)
-    process = subprocess.run([f'{shellFolder}/{cloudwatchConfigScript}'])
-    if(process.returncode != 0):
-        print(f'There was an issue when configuring cloudwatch, please check {process}')
+    """Runs the shell script to configure the cloudwatch agent"""
+    RunShellScript(cloudwatchConfigScript)
+
 
 
 InstallDependencies()
