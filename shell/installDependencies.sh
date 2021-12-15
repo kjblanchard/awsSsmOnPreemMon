@@ -3,20 +3,20 @@ if which collectd; then
     echo Collectd is installed
 else
     echo Installing CollectD
-    sudo apt install collectd
+    sudo apt-get install collectd > /dev/null 2>&1
 fi
 
 if which wget; then
-    echo Wget is installed
+    echo wget is installed
 else
-    apt install wget
+    sudo apt-get install wget > /dev/null 2>&1
 fi
 
 if which amazon-cloudwatch-agent-ctl; then
     echo Cloudwatch agent is installed
 else
     echo Installing cloudwatch agent
-    wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb -O /tmp/cwagent.deb
-    sudo dpkg -i /tmp/cwagent.deb
+    wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb -O /tmp/cwagent.deb > /dev/null 2>&1
+    sudo dpkg -i /tmp/cwagent.deb > /dev/null 2>&1
 fi
 echo Dependencies Fully installed!
