@@ -3,7 +3,7 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-c
 pid=$!
 wait $pid
 code=$?
-if [ $code -ne 0 ] ; then
+if [ $code -eq 0 ] ; then
     echo Configured Cloudwatch agent!
 else
     echo Issue with configuration, error code is $code.
