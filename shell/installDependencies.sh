@@ -16,7 +16,7 @@ if which amazon-cloudwatch-agent-ctl; then
     echo Cloudwatch agent is installed
 else
     echo Installing cloudwatch agent
-    wget https://s2.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb -O /tmp/cwagent.deb
+    wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb -O /tmp/cwagent.deb
     sudo dpkg -i /tmp/cwagent.deb
 fi
 echo Dependencies Fully installed!
