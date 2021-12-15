@@ -1,18 +1,18 @@
 #Needed for cloudwatch agent.
-if which collectd; then
+if which collectd > /dev/null 2>&1; then
     echo Collectd is installed
 else
     echo Installing CollectD
     sudo apt-get install collectd > /dev/null 2>&1
 fi
 
-if which wget; then
+if which wget > /dev/null 2>&1; then
     echo wget is installed
 else
     sudo apt-get install wget > /dev/null 2>&1
 fi
 
-if which amazon-cloudwatch-agent-ctl; then
+if which amazon-cloudwatch-agent-ctl > /dev/null 2>&1; then
     echo Cloudwatch agent is installed
 else
     echo Installing cloudwatch agent
