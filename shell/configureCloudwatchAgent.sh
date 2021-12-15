@@ -1,5 +1,7 @@
 #! /bin/sh
-/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m onPremise -s -c file:cloudWatchAgentConfig.json 2>&1 > /dev/null
+/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m onPremise -s -c file:cloudWatchAgentConfig.json > /dev/null 2>&1 &
+wait $!
+
 code=$?
 
 if [ $code -eq 0 ] ; then
