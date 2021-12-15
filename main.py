@@ -17,6 +17,7 @@ def RunShellScript(shellScriptFilename, scriptDescription = 'running the script'
     process = subprocess.run([f'{shellFolder}/{shellScriptFilename}'])
     if(process.returncode != 0):
         print(f'There was an issue when {scriptDescription}, please check {process}')
+        exit()
 
 def InstallDependencies():
     """Runs the shell script to install dependencies"""
