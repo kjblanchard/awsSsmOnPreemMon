@@ -1,6 +1,10 @@
 #! /bin/sh
-if sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m onPremise -s -c file:cloudWatchAgentConfig.json > /dev/null 2&>1; then
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m onPremise -s -c file:cloudWatchAgentConfig.json > /dev/null 2&>1
+pid=$!
+wait $pid
+code=$?
+if [ $code -ne 0 ] ; then
     echo Configured Cloudwatch agent!
 else
-    echo Issue with configuration.
+    echo Issue with configuration, error code is $code.
 fi
