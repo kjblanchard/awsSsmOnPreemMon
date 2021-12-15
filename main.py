@@ -1,10 +1,8 @@
 import subprocess
 import os
 import time
-import progressbar
+import progressbar2
 
-for i in progressbar.progressbar(range(100)):
-    time.sleep(0.02)
 
 shellFolder = './shell'
 dependencyScript = 'installDependencies.sh'
