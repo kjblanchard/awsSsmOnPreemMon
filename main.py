@@ -1,7 +1,7 @@
 import subprocess
 import os
 import time
-import progressbar2
+import progressbar
 
 
 shellFolder = './shell'
