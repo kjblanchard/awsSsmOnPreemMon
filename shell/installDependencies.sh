@@ -1,3 +1,4 @@
+#!/bin/sh
 #Needed for cloudwatch agent.
 if which collectd > /dev/null 2>&1; then
     echo Collectd is installed
