@@ -28,7 +28,9 @@ def ConfigureCloudwatchAgent():
     RunShellScript(cloudwatchConfigScript)
 
 
-
+if os.geteuid() != 0:
+    print('You need to run this script as root.')
+    exit()
 InstallDependencies()
 ConfigureCloudwatchAgent()
 
