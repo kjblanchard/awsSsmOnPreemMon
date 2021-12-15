@@ -1,5 +1,8 @@
 import subprocess
 import os
 
-os.chmod('./shell/installDependencies.sh',777)
-subprocess.run(['./shell/installDependencies.sh'])
+shellFolder = './shell'
+dependencyScript = 'installDependencies.sh'
+
+os.chmod(f'{shellFolder}/{dependencyScript}',0o0777)
+subprocess.run([f'{shellFolder}/{dependencyScript}'])
