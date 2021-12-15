@@ -1,3 +1,3 @@
 import subprocess
 
-subprocess.run(['/shell/installDependencies.sh'])
+subprocess.run(['./shell/installDependencies.sh'])
