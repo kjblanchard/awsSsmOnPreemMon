@@ -1,5 +1,10 @@
 import subprocess
 import os
+import time
+import progressbar
+
+for i in progressbar.progressbar(range(100)):
+    time.sleep(0.02)
 
 shellFolder = './shell'
 dependencyScript = 'installDependencies.sh'
@@ -31,7 +36,10 @@ def ConfigureCloudwatchAgent():
 if os.geteuid() != 0:
     print('You need to run this script as root.')
     exit()
+progressbar.progressbar(30)
 InstallDependencies()
+progressbar.progressbar(60)
 ConfigureCloudwatchAgent()
+progressbar.progressbar(100)
 
 
